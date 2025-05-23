@@ -8,6 +8,7 @@ import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
 import ActivityItem from '../components/dashboard/ActivityItem';
 import MoveMoneyModal from '../components/canvas/MoveMoneyModal';
+import CardManagementModal from '../components/canvas/CardManagementModal';
 import { formatCurrency } from '../utils';
 
 const CanvasDetail = () => {
@@ -15,6 +16,7 @@ const CanvasDetail = () => {
   const { canvases } = useCanvas();
   const canvas = canvases.find(c => c.id === id);
   const [moveMoneyOpen, setMoveMoneyOpen] = useState(false);
+  const [cardManagementOpen, setCardManagementOpen] = useState(false);
 
   if (!canvas) {
     return (
@@ -96,7 +98,7 @@ const CanvasDetail = () => {
           </div>
           <h3 className="text-lg font-medium mb-2">Cards</h3>
           <p className="text-cream-500 mb-4">Manage your business credit and debit cards</p>
-          <Button variant="primary">View Cards</Button>
+          <Button variant="primary" onClick={() => setCardManagementOpen(true)}>View Cards</Button>
         </Card>
       </div>
 
@@ -212,6 +214,11 @@ const CanvasDetail = () => {
       <MoveMoneyModal 
         isOpen={moveMoneyOpen}
         onClose={() => setMoveMoneyOpen(false)}
+      />
+
+      <CardManagementModal
+        isOpen={cardManagementOpen}
+        onClose={() => setCardManagementOpen(false)}
       />
     </div>
   );
