@@ -74,16 +74,14 @@ const MoveMoneyModal = ({ isOpen, onClose }: MoveMoneyModalProps) => {
       {frequency === 'recurring' && (
         <div className="space-y-4">
           <div className="flex items-center space-x-4">
-            <Input 
-              label="Frequency"
-              type="select"
-              className="flex-1"
-            >
-              <option value="weekly">Weekly</option>
-              <option value="biweekly">Bi-weekly</option>
-              <option value="monthly">Monthly</option>
-              <option value="quarterly">Quarterly</option>
-            </Input>
+            <div className="flex-1">
+              <select className="input w-full">
+                <option value="weekly">Weekly</option>
+                <option value="biweekly">Bi-weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="quarterly">Quarterly</option>
+              </select>
+            </div>
             <Input 
               label="End Date"
               type="date"
